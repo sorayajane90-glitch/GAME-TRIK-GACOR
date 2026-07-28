@@ -1,156 +1,187 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>WADAH4 KHUSUS GAME HARI INI^^</title>
+  <title>WADAH4D - Trik & Game Pilihan</title>
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
-      font-family: Arial, sans-serif;
       min-height: 100vh;
-      color: white;
       background:
-        radial-gradient(circle at top left, #6a00ff 0%, transparent 35%),
-        radial-gradient(circle at bottom right, #ff0080 0%, transparent 35%),
-        linear-gradient(135deg, #080014, #17002d, #050008);
-      padding: 30px 15px;
+        radial-gradient(circle at top, #3b0b5f 0%, transparent 40%),
+        linear-gradient(135deg, #090014, #160024, #050008);
+      color: white;
+      overflow-x: hidden;
     }
 
     .container {
-      max-width: 900px;
+      width: 92%;
+      max-width: 1100px;
       margin: auto;
+      padding: 30px 0 50px;
     }
 
-    .header {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
+    /* LOGO */
     .logo {
-      width: 90px;
-      height: 90px;
-      margin: auto;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 38px;
-      background: linear-gradient(135deg, #ff00cc, #3333ff);
-      box-shadow: 0 0 35px rgba(255, 0, 204, 0.7);
+      text-align: center;
+      margin-bottom: 12px;
     }
 
-    h1 {
-      margin-top: 18px;
-      font-size: 34px;
-      text-transform: uppercase;
+    .logo h1 {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: 5px;
+      color: #ffd700;
+      text-shadow:
+        0 0 5px #ffd700,
+        0 0 15px #ff9d00,
+        0 0 30px #ff6600;
+    }
+
+    .logo p {
+      margin-top: 8px;
+      color: #ddd;
+      font-size: 15px;
       letter-spacing: 2px;
     }
 
-    .subtitle {
-      margin-top: 10px;
-      color: #ddd;
-      font-size: 15px;
+    /* VVIP BUTTON */
+    .vvip-box {
+      text-align: center;
+      margin: 25px 0 35px;
     }
 
-    .game-list {
+    .vvip-btn {
+      display: inline-block;
+      padding: 15px 40px;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #ffd700, #ff8c00);
+      color: #1a0a00;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 18px;
+      box-shadow: 0 0 20px rgba(255, 174, 0, 0.6);
+      transition: 0.3s;
+    }
+
+    .vvip-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 35px rgba(255, 215, 0, 0.9);
+    }
+
+    /* TITLE */
+    .title {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .title h2 {
+      font-size: 28px;
+      color: #fff;
+    }
+
+    .title p {
+      color: #aaa;
+      margin-top: 8px;
+    }
+
+    /* GAME GRID */
+    .game-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
+      gap: 20px;
     }
 
     .game-card {
       position: relative;
-      overflow: hidden;
-      padding: 25px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 215, 0, 0.3);
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      padding: 25px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       transition: 0.3s;
     }
 
     .game-card:hover {
       transform: translateY(-7px);
-      box-shadow: 0 15px 40px rgba(255, 0, 204, 0.3);
+      border-color: #ffd700;
+      box-shadow: 0 15px 40px rgba(255, 174, 0, 0.25);
     }
 
-    .game-number {
-      position: absolute;
-      right: 18px;
-      top: 15px;
-      font-size: 13px;
-      color: #aaa;
+    .game-icon {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffd700, #ff6600);
+      color: #200900;
+      font-size: 30px;
+      font-weight: 900;
+      box-shadow: 0 0 20px rgba(255, 174, 0, 0.5);
     }
 
-    .game-name {
-      font-size: 20px;
-      font-weight: bold;
+    .game-card h3 {
+      font-size: 21px;
       margin-bottom: 10px;
+      color: #ffd700;
     }
 
-    .game-info {
+    .game-card p {
       color: #ccc;
-      font-size: 13px;
-      line-height: 1.5;
-      margin-bottom: 20px;
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 65px;
     }
 
-    .vip-button {
-      display: block;
-      width: 100%;
-      padding: 13px 20px;
-      text-align: center;
-      text-decoration: none;
+    .tip-btn {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 11px 25px;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #7b00ff, #d000ff);
       color: white;
+      text-decoration: none;
       font-weight: bold;
-      border-radius: 50px;
-      background: linear-gradient(90deg, #ff0099, #7b2cff, #00c6ff);
-      background-size: 200% 200%;
-      animation: gradientMove 4s ease infinite;
-      box-shadow: 0 5px 20px rgba(123, 44, 255, 0.4);
       transition: 0.3s;
     }
 
-    .vip-button:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 30px rgba(255, 0, 153, 0.6);
+    .tip-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(208, 0, 255, 0.6);
     }
 
-    @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    .footer {
+    /* FOOTER */
+    footer {
       text-align: center;
-      margin-top: 35px;
-      color: #aaa;
-      font-size: 12px;
+      margin-top: 45px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #888;
+      font-size: 13px;
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 25px;
+      .logo h1 {
+        font-size: 36px;
       }
 
-      .game-list {
-        grid-template-columns: 1fr;
+      .title h2 {
+        font-size: 23px;
       }
     }
   </style>
@@ -160,113 +191,103 @@
 
   <div class="container">
 
-    <div class="header">
-      <div class="logo">https://imgur.com/a/rhtWEac</div>
-
-      <h1>Game Info Center</h1>
-
-      <p class="subtitle">
-        Panduan dan informasi game favorit Anda
-      </p>
+    <!-- LOGO WADAH4D -->
+    <div class="logo">
+      <h1>WADAH4D</h1>
+      <p>GAME PILIHAN • TIPS • INFORMASI</p>
     </div>
 
-    <div class="game-list">
+    <!-- AKUN VVIP -->
+    <div class="vvip-box">
+      <a
+        class="vvip-btn"
+        href="https://wadahwow.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        👑 KLIK AKUN VVIP
+      </a>
+    </div>
+
+    <div class="title">
+      <h2>🔥 TRIK & TIPS GAME PILIHAN 🔥</h2>
+      <p>Pilih game favorit kamu untuk melihat tips umum bermain.</p>
+    </div>
+
+    <!-- GAME LIST -->
+    <div class="game-grid">
 
       <div class="game-card">
-        <span class="game-number">01</span>
-        <div class="game-name">GATE OLYMPUS</div>
-        <div class="game-info">
-          98% permainan Gate Olympus.
-        </div>
-        <a
-          class="vip-button"
-          href="https://wadahwow.com/"
-          target="_blank"
-          rel="noopener noreferrer">
-          🔥 KLIK AKUN VVIP
+        <div class="game-icon">GO</div>
+        <h3>GATE OLYMPUS</h3>
+        <p>
+          98% PERMAINAN GATE OLYMPUS.
+        </p>
+        <a class="tip-btn" href="https://wadahwow.com/" target="_blank">
+          LIHAT TRIK
         </a>
       </div>
 
       <div class="game-card">
-        <span class="game-number">02</span>
-        <div class="game-name">MAHYONG WAYS 2</div>
-        <div class="game-info">
-          89% permainan Mahyong Ways 2.
-        </div>
-        <a
-          class="vip-button"
-          href="https://wadahwow.com/"
-          target="_blank"
-          rel="noopener noreferrer">
-          🔥 KLIK AKUN VVIP
+        <div class="game-icon">MW</div>
+        <h3>MAHYONG WAYS 2</h3>
+        <p>
+          85% PERMAINAN MAHJONG WAYS 2.
+        </p>
+        <a class="tip-btn" href="https://wadahwow.com/" target="_blank">
+          LIHAT TRIK
         </a>
       </div>
 
       <div class="game-card">
-        <span class="game-number">03</span>
-        <div class="game-name">WILD BOUNTY SHOWDOWN</div>
-        <div class="game-info">
-          96% permainan Wild Bounty Showdown.
-        </div>
-        <a
-          class="vip-button"
-          href="https://wadahwow.com/"
-          target="_blank"
-          rel="noopener noreferrer">
-          🔥 KLIK AKUN VVIP
+        <div class="game-icon">WB</div>
+        <h3>WILD BOUNTY SHOWDOWN</h3>
+        <p>
+          85% PERMAINAN WILD BOUNTY SHOWDOWN.
+        </p>
+        <a class="tip-btn" href="https://wadahwow.com/" target="_blank">
+          LIHAT TRIK
         </a>
       </div>
 
       <div class="game-card">
-        <span class="game-number">04</span>
-        <div class="game-name">LUCKY NEKO</div>
-        <div class="game-info">
-          90% permainan Lucky Neko.
-        </div>
-        <a
-          class="vip-button"
-          href="https://wadahwow.com/"
-          target="_blank"
-          rel="noopener noreferrer">
-          🔥 KLIK AKUN VVIP
+        <div class="game-icon">LN</div>
+        <h3>LUCKY NEKO</h3>
+        <p>
+          90% PERMAINAN LUCKY NEKO.
+        </p>
+        <a class="tip-btn" href="https://wadahwow.com/" target="_blank">
+          LIHAT TRIK
         </a>
       </div>
 
       <div class="game-card">
-        <span class="game-number">05</span>
-        <div class="game-name">STRALIGTH PRINCE</div>
-        <div class="game-info">
-          97% permainan Stralight Prince.
-        </div>
-        <a
-          class="vip-button"
-          href="https://wadahwow.com/"
-          target="_blank"
-          rel="noopener noreferrer">
-          🔥 KLIK AKUN VVIP
+        <div class="game-icon">SP</div>
+        <h3>STRALIGHT PRINCE</h3>
+        <p>
+         92% PERMAINAN STARLIGHT PRINCES.
+        </p>
+        <a class="tip-btn" href="https://wadahwow.com/" target="_blank">
+          LIHAT TRIK
         </a>
       </div>
 
       <div class="game-card">
-        <span class="game-number">06</span>
-        <div class="game-name">SWEET BONANZA</div>
-        <div class="game-info">
-          92% permainan Sweet Bonanza.
-        </div>
-        <a
-          class="vip-button"
-          href="https://wadahwow.com/"
-          target="_blank"
-          rel="noopener noreferrer">
-          🔥 KLIK AKUN VVIP
+        <div class="game-icon">SB</div>
+        <h3>SWEET BONANZA</h3>
+        <p>
+          95% PERMAINAN SWEET BONANZA.
+        </p>
+        <a class="tip-btn" href="https://wadahwow.com/" target="_blank">
+          LIHAT TRIK
         </a>
       </div>
 
     </div>
 
-    <div class="footer">
-      © 2026 Game Info Center — Bermain secara bertanggung jawab.
-    </div>
+    <footer>
+      © 2026 WADAH4D • Bermain secara bertanggung jawab.
+    </footer>
 
   </div>
 

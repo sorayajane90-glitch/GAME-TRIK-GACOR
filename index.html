@@ -4,183 +4,247 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>WADAH4D - Trik & Game Pilihan</title>
+  <title>GAME GACOR HARI INI</title>
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
+      font-family: Arial, Helvetica, sans-serif;
       min-height: 100vh;
-      background:
-        radial-gradient(circle at top, #3b0b5f 0%, transparent 40%),
-        linear-gradient(135deg, #090014, #160024, #050008);
       color: white;
+      background:
+        radial-gradient(circle at top left, #ff00cc, transparent 30%),
+        radial-gradient(circle at top right, #00eaff, transparent 30%),
+        radial-gradient(circle at bottom left, #7a00ff, transparent 30%),
+        radial-gradient(circle at bottom right, #00ff88, transparent 30%),
+        #09001a;
       overflow-x: hidden;
+    }
+
+    /* Efek Rainbow */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        120deg,
+        #ff0000,
+        #ff7b00,
+        #ffff00,
+        #00ff66,
+        #00d9ff,
+        #4b00ff,
+        #ff00cc,
+        #ff0000
+      );
+      background-size: 400% 400%;
+      animation: rainbow 12s ease infinite;
+      opacity: 0.15;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .container {
       width: 92%;
       max-width: 1100px;
       margin: auto;
-      padding: 30px 0 50px;
+      padding: 25px 0 50px;
     }
 
-    /* LOGO */
-    .logo {
+    /* Header */
+    .header {
       text-align: center;
-      margin-bottom: 12px;
-    }
-
-    .logo h1 {
-      font-size: 48px;
-      font-weight: 900;
-      letter-spacing: 5px;
-      color: #ffd700;
-      text-shadow:
-        0 0 5px #ffd700,
-        0 0 15px #ff9d00,
-        0 0 30px #ff6600;
-    }
-
-    .logo p {
-      margin-top: 8px;
-      color: #ddd;
-      font-size: 15px;
-      letter-spacing: 2px;
-    }
-
-    /* VVIP BUTTON */
-    .vvip-box {
-      text-align: center;
-      margin: 25px 0 35px;
-    }
-
-    .vvip-btn {
-      display: inline-block;
-      padding: 15px 40px;
-      border-radius: 50px;
-      background: linear-gradient(90deg, #ffd700, #ff8c00);
-      color: #1a0a00;
-      text-decoration: none;
-      font-weight: 900;
-      font-size: 18px;
-      box-shadow: 0 0 20px rgba(255, 174, 0, 0.6);
-      transition: 0.3s;
-    }
-
-    .vvip-btn:hover {
-      transform: scale(1.06);
-      box-shadow: 0 0 35px rgba(255, 215, 0, 0.9);
-    }
-
-    /* TITLE */
-    .title {
-      text-align: center;
+      padding: 30px 20px;
+      border-radius: 25px;
+      background: rgba(10, 0, 30, 0.85);
+      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow:
+        0 0 15px #ff00cc,
+        0 0 30px #00eaff;
       margin-bottom: 25px;
     }
 
-    .title h2 {
+    .header h1 {
+      font-size: clamp(28px, 6vw, 55px);
+      font-weight: 900;
+      text-transform: uppercase;
+      background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ffff00,
+        #00ff88,
+        #00eaff,
+        #7a00ff,
+        #ff00cc
+      );
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: titleGlow 3s linear infinite;
+      background-size: 300%;
+    }
+
+    @keyframes titleGlow {
+      0% { background-position: 0%; }
+      100% { background-position: 300%; }
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      color: #ffffff;
+      font-size: 16px;
+    }
+
+    /* Tombol Daftar */
+    .daftar-btn {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 15px 50px;
+      border-radius: 50px;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: linear-gradient(
+        90deg,
+        #ff0055,
+        #ff9900,
+        #00ff88,
+        #00aaff,
+        #9900ff,
+        #ff0055
+      );
+      background-size: 300%;
+      box-shadow:
+        0 0 10px #ff00cc,
+        0 0 25px #00eaff;
+      animation: buttonRainbow 4s linear infinite;
+      transition: 0.3s;
+    }
+
+    @keyframes buttonRainbow {
+      0% { background-position: 0%; }
+      100% { background-position: 300%; }
+    }
+
+    .daftar-btn:hover {
+      transform: scale(1.08);
+      box-shadow:
+        0 0 20px #ffffff,
+        0 0 40px #ff00cc;
+    }
+
+    /* Judul */
+    .section-title {
+      text-align: center;
       font-size: 28px;
-      color: #fff;
+      margin: 30px 0 20px;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 10px #00eaff,
+        0 0 20px #ff00cc;
     }
 
-    .title p {
-      color: #aaa;
-      margin-top: 8px;
-    }
-
-    /* GAME GRID */
+    /* Grid Game */
     .game-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
     .game-card {
       position: relative;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 215, 0, 0.3);
+      overflow: hidden;
       border-radius: 20px;
-      padding: 25px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      background: rgba(15, 5, 35, 0.9);
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      box-shadow:
+        0 0 10px rgba(255, 0, 204, 0.6),
+        0 0 20px rgba(0, 234, 255, 0.4);
       transition: 0.3s;
     }
 
     .game-card:hover {
-      transform: translateY(-7px);
-      border-color: #ffd700;
-      box-shadow: 0 15px 40px rgba(255, 174, 0, 0.25);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow:
+        0 0 15px #ff0000,
+        0 0 25px #00ff88,
+        0 0 40px #00eaff;
     }
 
-    .game-icon {
-      width: 75px;
-      height: 75px;
-      margin: 0 auto 15px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #ffd700, #ff6600);
-      color: #200900;
-      font-size: 30px;
-      font-weight: 900;
-      box-shadow: 0 0 20px rgba(255, 174, 0, 0.5);
+    .game-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
     }
 
-    .game-card h3 {
-      font-size: 21px;
-      margin-bottom: 10px;
-      color: #ffd700;
+    .game-info {
+      padding: 15px;
+      text-align: center;
     }
 
-    .game-card p {
-      color: #ccc;
-      font-size: 14px;
-      line-height: 1.6;
-      min-height: 65px;
+    .game-info h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: white;
+      text-transform: uppercase;
     }
 
-    .tip-btn {
+    .play-btn {
       display: inline-block;
-      margin-top: 18px;
-      padding: 11px 25px;
+      padding: 10px 25px;
       border-radius: 30px;
-      background: linear-gradient(90deg, #7b00ff, #d000ff);
+      background: linear-gradient(90deg, #ff0066, #7a00ff);
       color: white;
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
     }
 
-    .tip-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(208, 0, 255, 0.6);
+    .play-btn:hover {
+      background: linear-gradient(90deg, #00eaff, #00ff88);
+      color: #000;
     }
 
-    /* FOOTER */
+    /* Footer */
     footer {
       text-align: center;
-      margin-top: 45px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      color: #888;
+      margin-top: 35px;
+      padding: 20px;
+      color: rgba(255,255,255,0.7);
       font-size: 13px;
     }
 
-    @media (max-width: 600px) {
-      .logo h1 {
-        font-size: 36px;
+    /* Responsive */
+    @media (max-width: 800px) {
+      .game-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      .game-grid {
+        grid-template-columns: 1fr;
       }
 
-      .title h2 {
-        font-size: 23px;
+      .game-card img {
+        height: 230px;
+      }
+
+      .daftar-btn {
+        width: 90%;
       }
     }
   </style>
@@ -190,106 +254,170 @@
 
   <div class="container">
 
-    <!-- LOGO WADAH4D -->
-    <div class="logo">
-      <h1>WADAH4D</h1>
-      <p>GAME PILIHAN • TIPS • INFORMASI</p>
-    </div>
+    <header class="header">
+      <h1>🌈 GAME GACOR HARI INI 🌈</h1>
 
-    <!-- AKUN VVIP -->
-    <div class="vvip-box">
+      <p class="subtitle">
+        Pilihan Game Populer Hari Ini
+      </p>
+
+      <!-- LINK DAFTAR -->
       <a
-        class="vvip-btn"
         href="https://wadahwow.com/"
         target="_blank"
         rel="noopener noreferrer"
-      >
-        👑 KLIK AKUN VVIP
+        class="daftar-btn">
+        DAFTAR SEKARANG
       </a>
-    </div>
+    </header>
 
-    <div class="title">
-      <h2>🔥 TRIK & TIPS GAME PILIHAN 🔥</h2>
-      <p>Pilih game favorit kamu untuk melihat tips umum bermain.</p>
-    </div>
 
-    <!-- GAME LIST -->
+    <h2 class="section-title">
+      🎰 GAME GACOR HARI INI 🎰
+    </h2>
+
+
     <div class="game-grid">
 
+      <!-- GAME 1 -->
       <div class="game-card">
-      <div class="https://img.viva88athenae.com/pp/images/vs20olympgate.png">
-        <h3>GATE OLYMPUS</h3>
-        <p>
-          98% PERMAINAN GATE OLYMPUS.
-        </p>
-        <a class="tip-btn" href="https://wadahwow.com/" target="_blank">
-          LIHAT TRIK
-        </a>
+        <img
+          src="https://www.pragmaticplay.com/wp-content/uploads/2021/02/Gates-of-Olympus.jpg"
+          alt="Gates of Olympus"
+          onerror="this.src='https://via.placeholder.com/600x400/220044/ffffff?text=GATES+OF+OLYMPUS'"
+        >
+
+        <div class="game-info">
+          <h3>GATE OLYMPUS</h3>
+
+          <a
+            href="https://wadahwow.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="play-btn">
+            MAIN SEKARANG
+          </a>
+        </div>
       </div>
 
+
+      <!-- GAME 2 -->
       <div class="game-card">
-        <div class="https://img.viva88athenae.com/pg/images/mahjong-ways2.png"></div>
-        <h3>MAHYONG WAYS 2</h3>
-        <p>
-          85% PERMAINAN MAHJONG WAYS 2.
-        </p>
-        <a class="tip-btn" href="https://wadahwow.com/" target="_blank">
-          LIHAT TRIK
-        </a>
+        <img
+          src="https://images.stake.com/images/games/pragmatic-play/starlight-princess.jpg"
+          alt="Starlight Princess"
+          onerror="this.src='https://via.placeholder.com/600x400/440044/ffffff?text=STARLIGHT+PRINCESS'"
+        >
+
+        <div class="game-info">
+          <h3>STARLIGHT PRINCESS</h3>
+
+          <a
+            href="https://wadahwow.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="play-btn">
+            MAIN SEKARANG
+          </a>
+        </div>
       </div>
 
+
+      <!-- GAME 3 -->
       <div class="game-card">
-        <div class="https://img.viva88athenae.com/pg/images/wild-bounty-showdown.png"></div>
-        <h3>WILD BOUNTY SHOWDOWN</h3>
-        <p>
-          85% PERMAINAN WILD BOUNTY SHOWDOWN.
-        </p>
-        <a class="tip-btn" href="https://wadahwow.com/" target="_blank">
-          LIHAT TRIK
-        </a>
+        <img
+          src="https://www.pragmaticplay.com/wp-content/uploads/2020/06/Sweet-Bonanza.jpg"
+          alt="Sweet Bonanza"
+          onerror="this.src='https://via.placeholder.com/600x400/ff66cc/ffffff?text=SWEET+BONANZA'"
+        >
+
+        <div class="game-info">
+          <h3>SWEET BONANZA</h3>
+
+          <a
+            href="https://wadahwow.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="play-btn">
+            MAIN SEKARANG
+          </a>
+        </div>
       </div>
 
+
+      <!-- GAME 4 -->
       <div class="game-card">
-         <div class="https://img.viva88athenae.com/pg/images/lucky-neko.png"></div>
-        <h3>LUCKY NEKO</h3>
-        <p>
-          90% PERMAINAN LUCKY NEKO.
-        </p>
-        <a class="tip-btn" href="https://wadahwow.com/" target="_blank">
-          LIHAT TRIK
-        </a>
+        <img
+          src="https://www.pgsoft.com/wp-content/uploads/2020/06/Mahjong-Ways-2.jpg"
+          alt="Mahjong Ways 2"
+          onerror="this.src='https://via.placeholder.com/600x400/008855/ffffff?text=MAHJONG+WAYS+2'"
+        >
+
+        <div class="game-info">
+          <h3>MAHJONG WAYS 2</h3>
+
+          <a
+            href="https://wadahwow.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="play-btn">
+            MAIN SEKARANG
+          </a>
+        </div>
       </div>
 
+
+      <!-- GAME 5 -->
       <div class="game-card">
-         <div class="https://img.viva88athenae.com/pp/images/vs20starlight.png"></div>
-        <h3>STRALIGHT PRINCES</h3>
-        <p>
-         92% PERMAINAN STARLIGHT PRINCES.
-        </p>
-        <a class="tip-btn" href="https://wadahwow.com/" target="_blank">
-          LIHAT TRIK
-        </a>
+        <img
+          src="https://www.pgsoft.com/wp-content/uploads/2020/06/Lucky-Neko.jpg"
+          alt="Lucky Neko"
+          onerror="this.src='https://via.placeholder.com/600x400/ff6600/ffffff?text=LUCKY+NEKO'"
+        >
+
+        <div class="game-info">
+          <h3>LUCKY NEKO</h3>
+
+          <a
+            href="https://wadahwow.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="play-btn">
+            MAIN SEKARANG
+          </a>
+        </div>
       </div>
 
+
+      <!-- GAME 6 -->
       <div class="game-card">
-        <div class="https://img.viva88athenae.com/pp/images/vs20fruitsw-t.png"></div>
-        <h3>SWEET BONANZA</h3>
-        <p>
-          95% PERMAINAN SWEET BONANZA.
-        </p>
-        <a class="tip-btn" href="https://wadahwow.com/" target="_blank">
-          LIHAT TRIK
-        </a>
+        <img
+          src="https://www.pgsoft.com/wp-content/uploads/2020/06/Wild-Bounty-Showdown.jpg"
+          alt="Wild Bounty Showdown"
+          onerror="this.src='https://via.placeholder.com/600x400/663300/ffffff?text=WILD+BOUNTY+SHOWDOWN'"
+        >
+
+        <div class="game-info">
+          <h3>WILD BOUNTY SHOWDOWN</h3>
+
+          <a
+            href="https://wadahwow.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="play-btn">
+            MAIN SEKARANG
+          </a>
+        </div>
       </div>
 
     </div>
 
+
     <footer>
-      © 2026 WADAH4D • Bermain secara bertanggung jawab.
+      © 2026 GAME GACOR HARI INI
     </footer>
 
   </div>
 
 </body>
 </html>
-```
